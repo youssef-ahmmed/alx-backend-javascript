@@ -1,4 +1,4 @@
-function getListStudentIds(studentList) {
+const getListStudentIds = (studentList) => {
   if (!Array.isArray(studentList)) {
     return [];
   }
