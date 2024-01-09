@@ -5,10 +5,10 @@ const updateStudentGradeByCity = (studentList, city, newGrades) => {
   });
 
   const studentsByCity = studentList.filter((student) => (student.location === city));
-  return studentsByCity.map((student) => {
-    const grade = idGradMap.get(student.id) || 'N/A';
-    return { ...student, grade };
-  });
+  return studentsByCity.map((student) => ({
+    ...student,
+    grade: idGradMap.get(student.id) || 'N/A',
+  }));
 };
 
 export default updateStudentGradeByCity;
