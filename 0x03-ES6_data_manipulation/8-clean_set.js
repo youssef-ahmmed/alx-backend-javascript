@@ -1,22 +1,17 @@
 const cleanSet = (set, startString) => {
-  const copiedArray = Array.from(set);
+  const stringWithNoPrefix = [];
 
   if (startString === '' || typeof startString !== 'string') {
     return '';
   }
 
-  copiedArray.forEach((element) => {
-    if (element.startsWith(startString)) {
-      const updatedElement = element.substring(startString.length);
-
-      set.delete(element);
-      set.add(updatedElement);
-    } else {
-      set.delete(element);
+  set.forEach((string) => {
+    if (typeof string === 'string' && string.startsWith(startString)) {
+      stringWithNoPrefix.push(string.substring(startString.length));
     }
   });
 
-  return Array.from(set).join('-');
+  return stringWithNoPrefix.join('-');
 };
 
 export default cleanSet;
