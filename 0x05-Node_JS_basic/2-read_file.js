@@ -1,17 +1,5 @@
 const fs = require('fs');
 
-const countStudents = (path) => {
-  try {
-    const results = getDataFromCsvFile(path);
-    const fieldsWithFirstName = assignNamesWithFields(results);
-
-    console.log(`Number of students: ${results.length}`);
-    printFiledStats(fieldsWithFirstName);
-  } catch (err) {
-    throw new Error('Cannot load the database');
-  }
-};
-
 const getDataFromCsvFile = (path) => {
   const csvData = fs.readFileSync(path, 'utf8');
   const rows = csvData.trim().split('\n');
@@ -39,6 +27,18 @@ const printFiledStats = (fieldsWithName) => {
   for (const [key, value] of Object.entries(fieldsWithName)) {
     const list = value.join(', ');
     console.log(`Number of students in ${key}: ${value.length}. List: ${list}`);
+  }
+};
+
+const countStudents = (path) => {
+  try {
+    const results = getDataFromCsvFile(path);
+    const fieldsWithFirstName = assignNamesWithFields(results);
+
+    console.log(`Number of students: ${results.length}`);
+    printFiledStats(fieldsWithFirstName);
+  } catch (err) {
+    throw new Error('Cannot load the database');
   }
 };
 
