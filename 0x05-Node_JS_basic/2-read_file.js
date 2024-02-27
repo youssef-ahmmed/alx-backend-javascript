@@ -21,11 +21,10 @@ const countStudents = (path) => {
 
     console.log(`Number of students: ${results.length}`);
 
-    for (const key in fieldsWithFirstName) {
-      const value = fieldsWithFirstName[key];
-      console.log(`Number of students in ${key}: ${value.length}. List: ${value}`);
+    for (const [key, value] of Object.entries(fieldsWithFirstName)) {
+      const list = value.join(', ');
+      console.log(`Number of students in ${key}: ${value.length}. List: ${list}`);
     }
-
   } catch (err) {
     throw new Error('Cannot load the database');
   }
