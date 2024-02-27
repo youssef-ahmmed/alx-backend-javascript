@@ -5,6 +5,7 @@ function countStudents(path) {
     fs.readFile(path, 'utf-8', (err, data) => {
       if (err) {
         reject(new Error('Cannot load the database'));
+        return;
       }
       const rows = data.trim().split('\n');
       const results = rows.slice(1).map((row) => row.split(','));
