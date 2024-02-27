@@ -23,7 +23,7 @@ const assignNamesWithFields = (results) => {
   return fieldsWithFirstName;
 };
 
-const printFiledStats = (fieldsWithName) => {
+const printFieldStats = (fieldsWithName) => {
   for (const [key, value] of Object.entries(fieldsWithName)) {
     const list = value.join(', ');
     console.log(`Number of students in ${key}: ${value.length}. List: ${list}`);
@@ -36,7 +36,7 @@ const countStudents = (path) => {
     const fieldsWithFirstName = assignNamesWithFields(results);
 
     console.log(`Number of students: ${results.length}`);
-    printFiledStats(fieldsWithFirstName);
+    printFieldStats(fieldsWithFirstName);
   } catch (err) {
     throw new Error('Cannot load the database');
   }
