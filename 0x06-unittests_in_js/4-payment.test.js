@@ -20,12 +20,13 @@ describe('sendPaymentRequestToApi', function () {
 
   it('should verify console log', function () {
     const spy = sinon.spy(console, 'log');
-    sinon.stub(Utils, 'calculateNumber').returns(10);
+    const stub = sinon.stub(Utils, 'calculateNumber').returns(10);
 
     sendPaymentRequestToApi(100, 20);
 
     expect(spy.calledWith('The total is: 10')).to.be.true;
 
     spy.restore();
+    stub.restore();
   });
 });
