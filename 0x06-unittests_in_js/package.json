@@ -6,12 +6,11 @@
   "scripts": {
     "test": "mocha"
   },
-  "type": "commonjs",
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^5.1.0",
-    "chai-http": "^4.4.0",
-    "mocha": "^10.3.0"
+    "chai": "^4.4.1",
+    "mocha": "^10.3.0",
+    "sinon": "^7.5.0"
   }
 }
